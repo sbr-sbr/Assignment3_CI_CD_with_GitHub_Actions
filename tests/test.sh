@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 set -u
 
@@ -17,7 +17,11 @@ assert_cli() {
     shift 3
 
     run_cli "$@"
-    if [ "$LAST_EXIT_CODE" -eq "$expected_exit_code" ] && [[ "$LAST_OUTPUT" == *"$expected_text"* ]]; then
+    if [ "$LAST_EXIT_CODE" -eq "$expected_exit_code" ] && case "$LAST_OUTPUT" in
+        *"$expected_text"*) true ;;
+        *) false ;;
+    esac
+    then
         printf ' \033[0;32m[PASS]\033[0m %s\n' "$test_name"
         PASSED_TESTS=$((PASSED_TESTS + 1))
     else
