@@ -6,6 +6,7 @@ PASSED_TESTS=0
 FAILED_TESTS=0
 
 run_cli() {
+    IMAGE_NAME="${IMAGE_NAME:-assignment3}"
     LAST_OUTPUT=$(docker run --rm "$IMAGE_NAME" "$@" 2>&1)
     LAST_EXIT_CODE=$?
 }

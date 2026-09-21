@@ -1,6 +1,6 @@
-FROM alpine:latest AS deps
+FROM alpine:latest
 
-RUN apk add --no-cache bash curl jq util-linux procps-ng libc-utils iproute2 iputils netcat-openbsd
+RUN apk add --no-cache bash iproute2 iputils libc-utils netcat-openbsd procps-ng util-linux
 
 WORKDIR /app
 
