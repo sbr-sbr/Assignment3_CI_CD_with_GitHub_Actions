@@ -21,6 +21,10 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
+      - name: Build Docker image for tests
+        run: |
+          echo "Building Docker image for tests..."
+          IMAGE_NAME=assignment3 ./scripts/build.sh
       - name: Run tests
         run: |
           echo "Running tests..."
