@@ -22,7 +22,7 @@ system_information(){
 }
 
 network_information(){
-    HOST_NAME=$2
+    HOST_NAME = $2
 
     if [ -z "$HOST_NAME" ]; then
         echo "Error: host cannot be empty." >&2
