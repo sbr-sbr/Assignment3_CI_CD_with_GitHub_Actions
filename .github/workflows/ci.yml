@@ -19,15 +19,23 @@ jobs:
     runs-on: ubuntu-latest
     needs: validate
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Build Docker image for tests
+        run: |
+          echo "Building Docker image for tests..."
+          IMAGE_NAME=assignment3 ./scripts/build.sh
       - name: Run tests
         run: |
           echo "Running tests..."
-          ./scripts/test.sh
+          ./tests/test.sh
 
   docker:
     runs-on: ubuntu-latest
     needs: test
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
       - name: Build Docker image
         run: |
           echo "Building Docker image..."

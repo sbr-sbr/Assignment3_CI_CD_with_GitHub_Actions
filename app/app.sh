@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/sh
 current_hostname=$(hostname)
 current_user=$(whoami)
 current_date_time=$(date +"%F %T")
