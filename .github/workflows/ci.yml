@@ -22,7 +22,7 @@ jobs:
       - name: Run tests
         run: |
           echo "Running tests..."
-          ./scripts/test.sh
+          ./tests/test.sh
 
   docker:
     runs-on: ubuntu-latest
